@@ -47,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li><a href="#">My Wishlist</a></li>
                 <li><a href="cart.html">My Cart</a></li>
                 <li><a href="#">Checkout</a></li>
-                <li class="last"><a href="login.html">Log In</a></li>
+                <li class="last"><a href="<?=site_url('users/login')?>">Log In</a></li>
             </ul>
             <ul class="network">
                 <li>Share with us:</li>
@@ -69,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="clear"></div>
         <div class="navigation">
             <ul id="nav" class="dropdown dropdown-linear dropdown-columnar">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="<?=site_url('home')?>">Home</a></li>
                 <li><a href="static.html">About Us</a></li>
                 <li class="dir"><a href="#">Department More</a>
                     <ul class="bordergr big">
@@ -128,17 +128,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="clear"></div>
     </div>
     <div class="clear"></div>
-    <!-- Banner Section -->
-    <!--<div id="banner">
-        <div id="slider4" class="nivoSlider">
-            <a href="detail.html"><img src="public/images/banner1.jpg" alt="" ></a>
-            <a href="detail.html"><img src="public/images/banner2.jpg" alt="" ></a>
-            <a href="detail.html"><img src="public/images/banner3.jpg" alt="" ></a>
-            <a href="detail.html"><img src="public/images/banner4.jpg" alt="" ></a>
-        </div>
-        <script type="text/javascript" src="public/js/jquery.nivo.slider.pack.js"></script>
-        <script type="text/javascript" src="public/js/nivo.js"></script>
-    </div>-->
     <div class="clear"></div>
     <!-- Scroolling Products -->
     <div class="content_sec">

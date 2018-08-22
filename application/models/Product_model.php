@@ -31,6 +31,20 @@ class Product_model extends CI_Model
             ->order_by('r.comment desc')
             ->limit(15); // cau query
         return  $query->get()->result_array(); // ket qua
+    }
 
+    public function cart_model($id)
+    {
+        $id = (int)$id;
+        $query = $this->db->select('
+            f.`id` as pro_id, f.name as pro_name, f.price as pro_price,
+            fs_product_img.url as pro_img,
+            fs_product_img.alt as pro_alt
+                ')
+            ->from('fs_product f')
+            ->join('fs_product_img','on f.id = fs_product_img.product_id')
+            ->where('id =', $id);
+            //->group_by('f.id')
+        return  $query->get()->result_array(); // ket qua
     }
 }

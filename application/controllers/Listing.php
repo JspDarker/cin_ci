@@ -23,12 +23,12 @@ class Listing extends MY_Controller
         $total_page = ceil($rows/$limit);
 
         $this->render('listing',array(
-            'listings'        => $listings,
-            //'rows'    => $rows,
-            'total_page'  => $total_page,
-            'ca' => $id,
-            'sort' =>$sort,
-            'page' =>$page
+            'listings'      => $listings,
+            'total_page'    => $total_page,
+            'ca'            => $id,
+            'sort'          =>$sort,
+            'page'          =>$page,
+            //'rows'    => $rows
         ));
     }
 

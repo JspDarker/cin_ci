@@ -34,8 +34,32 @@ class Product_model extends CI_Model
     }
 
     public function cart_model($id)
-    {
-        $id = (int)$id;
+    {   //$arr = array(23,36,78);
+
+        //array_push($arr,$id);
+
+        $carts = $this->session->cart; //$_SESSION['cart'] = $id
+        /*$carts[$id] = 1;
+
+        */
+        if($carts) { // TODO: this
+            $carts[$id] = $id;
+            if(array_keys($carts) == $id) {
+                $carts[$id]++;
+            }
+        }
+
+
+        /*echo "<pre>";
+        print_r($carts);
+        echo "</pre>";*/
+        echo "<pre>";
+        print_r($_SESSION);
+        echo "</pre>";
+        //$ids = array_keys($carts);
+        if(empty($ids)) {
+            $ids = 0;
+        }
         $query = $this->db->select('
             f.`id` as pro_id, f.name as pro_name, f.price as pro_price,
             fs_product_img.url as pro_img,
@@ -43,8 +67,7 @@ class Product_model extends CI_Model
                 ')
             ->from('fs_product f')
             ->join('fs_product_img','on f.id = fs_product_img.product_id')
-            ->where('id =', $id);
-            //->group_by('f.id')
+            ->where_in('f.id', $ids);
         return  $query->get()->result_array(); // ket qua
     }
 }

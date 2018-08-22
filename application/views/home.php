@@ -12,7 +12,7 @@
                 <a href="#"><img src="public/images/product/<?=$product['url']?>" alt="<?=$product['alt']?>" ></a>
                 <h6 class="colr"><?=$product['name']?></h6>
                 <p class="price bold"><?php echo number_format($product['price'])?> VND</p>
-                <a href="cart.html" class="adcart">Add to Cart</a>
+                <a href="<?=site_url()?>/shopping/add/<?=$product['id']?>" class="adcart">Add to Cart</a>
             </li>
             <?php endforeach;?>
         </ul>

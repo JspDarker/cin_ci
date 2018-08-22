@@ -20,7 +20,7 @@
             <li class="price txt"><?=number_format($p['pro_price'])?></li>
             <li class="qty">
                 <form id="frm-cart" name="frm-cart" method="post" action="inited.php?mod=cart_access&act=2">
-                    <input name="<?=$p['pro_id']?>" type="number" min="1" value="<?=$cart[$p['pro_id']];?>">
+                    <input name="<?=$p['pro_id']?>" type="number" min="1" value="<?/*=$cart[$p['pro_id']];*/?>">
             </li>
             <li class="total txt">
                <!-- --><?php /*$_SESSION['total'] += $p->pro_price * $cart[$p->pro_id];
@@ -35,7 +35,7 @@
             <button type="submit"><span>Update</span></button>
             </form>
             <a href="inited.php?mod=checkout" class="simplebtn"><span>Check Out</span></a>
-            <h3 class="colr"><?php echo number_format($_SESSION['total']);?></h3>
+            <h3 class="colr"><?php /*echo number_format($_SESSION['total']);*/?></h3>
         </div>
     </div>
 </div>

@@ -6,16 +6,10 @@
 <div class="sorting">
     <p class="left colr">4 Item(s)</p>
     <ul class="right">
-        <li class="text">
-            Sort by Name
-            <a href="<?=site_url()?>/listing/lists/<?=$ca?>/1/<?=$page?>" class="colr">DESC</a>
-            <a href="<?=site_url()?>/listing/lists/<?=$ca?>/3/<?=$page?>" class="colr">ASC</a> Price
-            <a href="<?=site_url()?>/listing/lists/<?=$ca?>/2/<?=$page?>" class="colr">DESC</a>
-            <a href="<?=site_url()?>/listing/lists/<?=$ca?>/4/<?=$page?>" class="colr">ASC</a>
-        </li>
+
         <li class="text">Page
             <?php for($i = 1; $i <= $total_page ; $i++):?>
-                <a href="<?=site_url()?>/listing/lists/<?=$ca?>/<?=$sort?>/<?=$i?>" class="colr"><?=$i?></a>
+                <a href="<?=site_url()?>/listing/lists/<?=$ca?>/<?=$sort?>/<?=$i?>" class="colr <?=($page==$i)? ' high-light': ''?>"><?=$i?></a>
             <?php endfor;?>
             <a href="#" class="colr">/ All</a>
         </li>
@@ -24,9 +18,11 @@
     <p class="left">View as: <a href="#" class="bold">Grid</a>&nbsp;<a href="#" class="colr">List</a></p>
     <ul class="right">
         <li class="text">
-            Sort by Position
-            <a href="#" class="colr">Name </a>
-            <a href="#" class="colr">Price</a>
+            Sort by Name
+            <a href="<?=site_url()?>/listing/lists/<?=$ca?>/1/<?=$page?>" class="colr<?=($sort == 1)? ' sort-high-light': ''?>">DESC</a>
+            <a href="<?=site_url()?>/listing/lists/<?=$ca?>/3/<?=$page?>" class="colr <?=($sort == 3)? ' sort-high-light': ''?>">ASC</a> Price
+            <a href="<?=site_url()?>/listing/lists/<?=$ca?>/2/<?=$page?>" class="colr<?=($sort == 2)? ' sort-high-light': ''?>">DESC</a>
+            <a href="<?=site_url()?>/listing/lists/<?=$ca?>/4/<?=$page?>" class="colr<?=($sort == 4)? ' sort-high-light': ''?>">ASC</a>
         </li>
     </ul>
 </div>

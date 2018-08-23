@@ -13,7 +13,7 @@ class Shopping extends MY_Controller
 
     public function carts()
     {
-        $_SESSION['cart'] =
+        //$_SESSION['cart'] =
 
         if (empty($ids)) {
             $ids = 0;

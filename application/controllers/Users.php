@@ -91,19 +91,85 @@ class Users extends MY_Controller
 
     public function update()
     {
+        echo base_url().'public/images/avatar/';
         $id_user = (int)$this->session->userdata('user_id');
         if($this->input->post('name')!==NULL) {
+            $this->form_validation->set_rules('name','name','required|regex_match[/^([a-z ])+$/i]|trim|min_length[2]');
+            $this->form_validation->set_rules('address', 'address', 'required|min_length[2]|trim');
+            $this->form_validation->set_rules('phone', 'phone', 'required|integer|min_length[1]|max_length[11]');
 
-        } else {
+            $this->form_validation->set_rules('avatar', 'Avatar', 'callback_avatar_check');
 
+            if ($this->form_validation->run() !== false) {
+                $name=$this->input->post('name'); // loc xss $this->input->post('email', true)
+                $address =$this->input->post('address');
+                $phone =$this->input->post('phone');
+                $gender =$this->input->post('gender');
+                $dob =$this->input->post('dob');
+                //$this->load->helper('file');
+                $avatars = $this->upload->data();// array
+                //get name image : $avatar['file_name'];
+                //$avatar = $avatars['file_name'];
+                echo "<pre>";
+                print_r($avatars);
+                echo "</pre>";
+                $array = array(
+                    'name'          => $name,
+                    'mobile'        => $phone,
+                    'address'       => $address,
+                    'dob'           => $dob,
+                    'path_avatar'   => $avatars['file_name'],
+                    'gender'        => $gender
+                );
+                $res = $this->user_model->update_avatar($id_user, $array);
+            } else {
+                // xoa file da upload
+                $this->load->library('upload');
+                $avatars = $this->upload->data();
+                echo "<pre>";
+                print_r($avatars);
+                echo "</pre>";
+                if ($avatars['file_name']) unlink('public/images/avatar/' . $avatars['file_name']); // $avatar['avatar'] is input name
+
+                $this->render('u_update',array(
+                    //'user' => $render_info_user
+                ));
+            }
+        }
+        else {
             $render_info_user = $this->user_model->get_user_by_id($id_user);
-            echo "<pre>";
-            print_r($render_info_user);
-            echo "</pre>";
-            print_r($id_user);
+                                echo "<pre>";
+                                print_r($render_info_user);
+                                echo "</pre>";
+                                print_r($id_user);
             $this->render('u_update',array(
                 'user' => $render_info_user
             ));
+        }
+
+    }
+
+    public function avatar_check(){
+        //File upload
+        $config['upload_path']          = './public/images/avatar';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 100;
+        $config['max_width']            = 1024;
+        $config['max_height']           = 768;
+
+        $this->load->library('upload', $config);
+        if ( ! $this->upload->do_upload('avatar'))
+        {
+            $this->form_validation->set_message('avatar_check',$this->upload->display_errors(''));
+            return false;
+        }
+        else
+        {
+            /*$return = $this->upload->data();
+            $image_name = $return['file_name'];
+            var_dump($image_name);
+            echo '111111111111111';*/
+            return true;
         }
 
     }

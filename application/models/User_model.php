@@ -13,7 +13,11 @@ class User_model extends CI_Model
         }
         else return false;
     }
-
+    public function update_avatar($id, $arr_data)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('fs_user', $arr_data);
+    }
     public function pass_true($email, $pass_input)
     {
 

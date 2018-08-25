@@ -11,13 +11,18 @@ class Listing_model extends CI_Model
             ->from('fs_product f')
             ->join('fs_product_img img', 'on f.id = img.product_id')
             ->where($select_where)->limit(10); // cau query
-        //var_dump($query->get_compiled_select('',false));//
+
+        var_dump($query->get_compiled_select('',false));//
         return  $query->get()->result_array(); // ket qua
+
+        //return $results;
+        //var_dump($menus);
     }
 
     public function get_product_by_cate($id, $limit, $sort,$page)
     {
         $pos = ($page -1) * $limit;
+        $order = "fs_product.view DESC";
         switch ($sort) {
             case 1:
                 $order = "fs_product.name DESC";
@@ -31,8 +36,6 @@ class Listing_model extends CI_Model
             case 4:
                 $order = "fs_product.price";
                 break;
-            default:
-                $order = "fs_product.id DESC";
         }
         $query = $this->db->select('
             fs_product.name AS pro_name,fs_product.id AS pro_id,
@@ -46,7 +49,7 @@ class Listing_model extends CI_Model
             ->where('fs_product.category_id =', $id)
             ->group_by('fs_product.id')
             ->order_by($order)
-            ->limit($limit,$pos); // cau query -> because limit revert , nan TODO: add done
+            ->limit($limit,$pos); // cau query
 
         /*echo "<pre>";
         print_r($query->get_compiled_select('',false));
@@ -61,6 +64,7 @@ class Listing_model extends CI_Model
         $query = $this->db->select('count(1) as `total`')
             ->from('fs_product')
             ->where($select_where); // cau query
+
         //var_dump($query->get_compiled_select('',false));//
         $res = $query->get()->row_array(); // ket qua
         return $res['total'];

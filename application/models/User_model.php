@@ -13,23 +13,16 @@ class User_model extends CI_Model
         }
         else return false;
     }
-    public function update_avatar($id, $arr_data)
-    {
-        $this->db->where('id', $id);
-        $this->db->update('fs_user', $arr_data);
-    }
+
     public function pass_true($email, $pass_input)
     {
-
         $select_where = array('email =' => $email);
         $query = $this->db->select('
             id,email,name,password')
             ->from('fs_user')
             ->where($select_where); // cau query
-
         //var_dump($query->get_compiled_select('',false));//
         $info = $query->get()->row_array(); // ket qua
-
         //so sanh pass
         if (password_verify($pass_input,$info['password']) !== true) {
             return false;
@@ -41,13 +34,18 @@ class User_model extends CI_Model
         }
     }
 
+    public function update_avatar($id, $arr_data)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('fs_user', $arr_data);
+    }
+    
     public function get_user_by_id($id)
     {
         $query = $this->db->select('
-            name,mobile,address,dob,gender')
+            name,mobile,address,dob,gender,path_avatar')
             ->from('fs_user')
             ->where('id =', $id); // cau query
-
         var_dump($query->get_compiled_select('',false));//
         $info = $query->get()->row_array(); // ket qua
         return $info;

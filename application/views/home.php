@@ -12,7 +12,7 @@
                 <a href="#"><img src="public/images/product/<?=$product['url']?>" alt="<?=$product['alt']?>" ></a>
                 <h6 class="colr"><?=$product['name']?></h6>
                 <p class="price bold"><?php echo number_format($product['price'])?> VND</p>
-                <a href="<?=site_url()?>/shopping/add/<?=$product['id']?>" class="adcart">Add to Cart</a>
+                <a href="<?=site_url()?>/cart/add/<?=$product['id']?>" class="adcart">Add to Cart</a>
             </li>
             <?php endforeach;?>
         </ul>
@@ -50,12 +50,154 @@
                     <a href="#">Add to Compare</a>
                 </div>
                 <div class="cart_price">
-                    <a href="?mod=cart_access&act=1&pro_id=<?=$list['id']?>" class="adcart" itemid="<?=$list['id']?>">Add to Cart</a>
+                    <a href="<?=site_url()?>/cart/add/<?=$list['id']?>" class="adcart" itemid="<?=$list['id']?>">Add to Cart</a>
                     <p class="price">$<?php echo round((($list['price'])/1000000),2)?></p>
                 </div>
             </li>
         <?php endforeach?>
 
+       <!-- <li>
+            <a href="detail.html" class="thumb"><img src="public/images/prod5.gif" alt="" ></a>
+            <h6 class="colr">Armani Tweed Blazer</h6>
+            <div class="stars">
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_grey.gif" alt="" ></a>
+                <a href="#">(3) Reviews</a>
+            </div>
+            <div class="addwish">
+                <a href="#">Add to Wishlist</a>
+                <a href="#">Add to Compare</a>
+            </div>
+            <div class="cart_price">
+                <a href="cart.html" class="adcart">Add to Cart</a>
+                <p class="price">$399.99</p>
+            </div>
+        </li>
+        <li>
+            <a href="detail.html" class="thumb"><img src="public/images/prod6.gif" alt="" ></a>
+            <h6 class="colr">Armani Tweed Blazer</h6>
+            <div class="stars">
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_grey.gif" alt="" ></a>
+                <a href="#">(3) Reviews</a>
+            </div>
+            <div class="addwish">
+                <a href="#">Add to Wishlist</a>
+                <a href="#">Add to Compare</a>
+            </div>
+            <div class="cart_price">
+                <a href="cart.html" class="adcart">Add to Cart</a>
+                <p class="price">$399.99</p>
+            </div>
+        </li>
+        <li class="last">
+            <a href="detail.html" class="thumb"><img src="public/images/prod4.gif" alt="" ></a>
+            <h6 class="colr">Armani Tweed Blazer</h6>
+            <div class="stars">
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_grey.gif" alt="" ></a>
+                <a href="#">(3) Reviews</a>
+            </div>
+            <div class="addwish">
+                <a href="#">Add to Wishlist</a>
+                <a href="#">Add to Compare</a>
+            </div>
+            <div class="cart_price">
+                <a href="cart.html" class="adcart">Add to Cart</a>
+                <p class="price">$399.99</p>
+            </div>
+        </li>
+
+
+        <li>
+            <a href="detail.html" class="thumb"><img src="public/images/prod5.gif" alt="" ></a>
+            <h6 class="colr">Armani Tweed Blazer</h6>
+            <div class="stars">
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_grey.gif" alt="" ></a>
+                <a href="#">(3) Reviews</a>
+            </div>
+            <div class="addwish">
+                <a href="#">Add to Wishlist</a>
+                <a href="#">Add to Compare</a>
+            </div>
+            <div class="cart_price">
+                <a href="cart.html" class="adcart">Add to Cart</a>
+                <p class="price">$399.99</p>
+            </div>
+        </li>
+        <li>
+            <a href="detail.html" class="thumb"><img src="public/images/prod6.gif" alt="" ></a>
+            <h6 class="colr">Armani Tweed Blazer</h6>
+            <div class="stars">
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_grey.gif" alt="" ></a>
+                <a href="#">(3) Reviews</a>
+            </div>
+            <div class="addwish">
+                <a href="#">Add to Wishlist</a>
+                <a href="#">Add to Compare</a>
+            </div>
+            <div class="cart_price">
+                <a href="cart.html" class="adcart">Add to Cart</a>
+                <p class="price">$399.99</p>
+            </div>
+        </li>
+        <li>
+            <a href="detail.html" class="thumb"><img src="public/images/prod4.gif" alt="" ></a>
+            <h6 class="colr">Armani Tweed Blazer</h6>
+            <div class="stars">
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_grey.gif" alt="" ></a>
+                <a href="#">(3) Reviews</a>
+            </div>
+            <div class="addwish">
+                <a href="#">Add to Wishlist</a>
+                <a href="#">Add to Compare</a>
+            </div>
+            <div class="cart_price">
+                <a href="cart.html" class="adcart">Add to Cart</a>
+                <p class="price">$399.99</p>
+            </div>
+        </li>
+        <li class="last">
+            <a href="detail.html" class="thumb"><img src="public/images/prod5.gif" alt="" ></a>
+            <h6 class="colr">Armani Tweed Blazer</h6>
+            <div class="stars">
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_green.gif" alt="" ></a>
+                <a href="#"><img src="public/images/star_grey.gif" alt="" ></a>
+                <a href="#">(3) Reviews</a>
+            </div>
+            <div class="addwish">
+                <a href="#">Add to Wishlist</a>
+                <a href="#">Add to Compare</a>
+            </div>
+            <div class="cart_price">
+                <a href="cart.html" class="adcart">Add to Cart</a>
+                <p class="price">$399.99</p>
+            </div>
+        </li>-->
     </ul>
 </div>
 </div>

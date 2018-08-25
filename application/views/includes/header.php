@@ -42,12 +42,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div id="masthead">
         <div class="secnd_navi">
             <ul class="links">
-                <li>Default welcome msg!</li>
-                <li><a href="account.html">My Account</a></li>
-                <li><a href="#">My Wishlist</a></li>
-                <li><a href="cart.html">My Cart</a></li>
-                <li><a href="#">Checkout</a></li>
-                <li class="last"><a href="<?=site_url('users/login')?>">Log In</a></li>
+                <li style="color: aqua; font-weight: bold">Welcome LAMPART</li>
+                <li><a style="color: red; font-weight: bold" href="<?=site_url('cart/show_order')?>"><?=$this->session->user_name?></a></li>
+                <li><a href="<?=site_url()?>/cart/show">My Cart</a></li>
+                <li><a href="<?=site_url()?>/cart/checkout">Checkout</a></li>
+                <?php ?>
+                <?php if($this->session->has_userdata('user_id')):?>
+                    <li ><a href="<?=site_url()?>/users/Logout">Logout</a></li>
+                    <li class="last"><a href="<?=site_url()?>/users/update">Update Profile</a></li>
+                <?php else:?>
+                    <li><a href="<?=site_url()?>/users/login">Log In</a></li>
+                    <li class="last"><a href="<?=site_url()?>/users/register">Register</a></li>
+                <?php endif;?>
             </ul>
             <ul class="network">
                 <li>Share with us:</li>
@@ -69,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="clear"></div>
         <div class="navigation">
             <ul id="nav" class="dropdown dropdown-linear dropdown-columnar">
-                <li><a href="<?=site_url('home')?>">Home</a></li>
+                <li><a href="<?=site_url()?>/home">Home</a></li>
                 <li><a href="static.html">About Us</a></li>
                 <li class="dir"><a href="#">Department More</a>
                     <ul class="bordergr big">
@@ -91,7 +97,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <ul class="bordergr small">
                         <li class="dir"><span class="colr navihead bold">Pages</span>
                             <ul>
-                                <li class="clear"><a href="index.html">Home Page</a></li>
+                                <li class="clear"><a href="<?=site_url()?>/home">Home Page</a></li>
                                 <li class="clear"><a href="account.html">Account Page</a></li>
                                 <li class="clear"><a href="cart.html">Shopping Cart Page</a></li>
                                 <li class="clear"><a href="categories.html">Categories</a></li>
@@ -128,6 +134,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="clear"></div>
     </div>
     <div class="clear"></div>
+
     <div class="clear"></div>
     <!-- Scroolling Products -->
     <div class="content_sec">

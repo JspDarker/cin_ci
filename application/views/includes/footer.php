@@ -14,68 +14,9 @@
                         <?php foreach ($cate as $ca): ?>
                         <li><a href="listing.html?<?=$ca['fc_id']?>"><?=$ca['fc_name']?></a></li>
                         <?php endforeach;?>
-                        <li><a href="listing.html">LHF Bedding</a></li>
-                        <li><a href="listing.html">Pacific Coast</a></li>
-                        <li><a href="listing.html">SnugFleece Woolens</a></li>
-                        <li><a href="listing.html">Southern Textiles</a></li>
                     </ul>
                 </div>
                 <?php endforeach;?>
-
-                <!--<a class="menuitem submenuheader" href="#" >Le Vele Bedding</a>
-                <div class="submenu">
-                    <ul>
-                        <li><a href="listing.html">Le Vele Bedding</a></li>
-                        <li><a href="listing.html">LHF Bedding</a></li>
-                        <li><a href="listing.html">Pacific Coast</a></li>
-                        <li><a href="listing.html">SnugFleece Woolens</a></li>
-                        <li><a href="listing.html">Southern Textiles</a></li>
-                    </ul>
-                </div>
-                <a class="menuitem submenuheader" href="#" >LHF Bedding</a>
-                <div class="submenu">
-                    <ul>
-                        <li><a href="listing.html">Le Vele Bedding</a></li>
-                        <li><a href="listing.html">LHF Bedding</a></li>
-                        <li><a href="listing.html">Pacific Coast</a></li>
-                        <li><a href="listing.html">SnugFleece Woolens</a></li>
-                        <li><a href="listing.html">Southern Textiles</a></li>
-                    </ul>
-                </div>
-                <a class="menuitem submenuheader" href="#" >Pacific Coast</a>
-                <div class="submenu">
-                    <ul>
-                        <li><a href="listing.html">Le Vele Bedding</a></li>
-                        <li><a href="listing.html">LHF Bedding</a></li>
-                        <li><a href="listing.html">Pacific Coast</a></li>
-                        <li><a href="listing.html">SnugFleece Woolens</a></li>
-                        <li><a href="listing.html">Southern Textiles</a></li>
-                    </ul>
-                </div>
-                <a class="menuitem submenuheader" href="#" >SnugFleece Woolens</a>
-                <div class="submenu">
-                    <ul>
-                        <li><a href="listing.html">Le Vele Bedding</a></li>
-                        <li><a href="listing.html">LHF Bedding</a></li>
-                        <li><a href="listing.html">Pacific Coast</a></li>
-                        <li><a href="listing.html">SnugFleece Woolens</a></li>
-                        <li><a href="listing.html">Southern Textiles</a></li>
-                    </ul>
-                </div>
-                <a class="menuitem submenuheader" href="#" >Southern Textiles</a>
-                <div class="submenu">
-                    <ul>
-                        <li><a href="listing.html">Le Vele Bedding</a></li>
-                        <li><a href="listing.html">LHF Bedding</a></li>
-                        <li><a href="listing.html">Pacific Coast</a></li>
-                        <li><a href="listing.html">SnugFleece Woolens</a></li>
-                        <li><a href="listing.html">Southern Textiles</a></li>
-                    </ul>
-                </div>-->
-
-
-
-
             </div>
         </div>
         <div class="clear"></div>
